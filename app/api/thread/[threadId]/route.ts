@@ -1,6 +1,6 @@
 import { prisma } from '@/app/utils/prisma'; // Adjust the path to your Prisma instance
 
-export async function GET(req: Request, { params }: { params: { threadId: string } }) {
+export async function GET(req: Request, { params }: { params: Promise<{ threadId: string }> }) {
     const { threadId } = await params;
 
     try {

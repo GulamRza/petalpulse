@@ -11,7 +11,6 @@ const ProfilePage = async ({params} : { params : Promise<{ userId : string}>}) =
   const session = await getServerSession(authOptions);
   let user: any;
 
-  console.log(session?.user)
   
   try{
         user = await prisma.user.findUnique({
