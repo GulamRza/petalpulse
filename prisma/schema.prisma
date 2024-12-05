@@ -1,0 +1,79 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String    @unique
+  password  String
+  threads   Thread[] // User's created threads
+  comments  Comment[] // User's comments
+  answers Answer[] // User's answers to threads
+  createdAt DateTime  @default(now())
+}
+
+model Category {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  threads Thread[]
+}
+
+model Tag {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  threadIDs String[] @db.ObjectId
+  threads Thread[] @relation(fields: [threadIDs], references: [id])
+}
+
+model Thread {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  title      String
+  content    String
+  author     User      @relation(fields: [authorId], references: [id])
+  authorId   String    @db.ObjectId
+  category   Category  @relation(fields: [categoryId], references: [id])
+  categoryId String    @db.ObjectId
+
+  tags       Tag[]     @relation(fields: [tagIDs], references: [id])
+  tagIDs     String[]  @db.ObjectId
+
+  answers Answer[]
+  comments   Comment[]
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+}
+
+model Answer {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  content String
+  threadId String @db.ObjectId
+  thread Thread @relation(fields: [threadId], references: [id])
+  userId String @db.ObjectId
+  user User @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Comment {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  content   String
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  String   @db.ObjectId
+  thread    Thread   @relation(fields: [threadId], references: [id])
+  threadId  String   @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
