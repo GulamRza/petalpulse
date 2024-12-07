@@ -89,11 +89,9 @@ const Navbar = () => {
                 <Link href="/" className="text-lg text-gray-800 dark:text-gray-300 hover:text-green-600 transition block">Home</Link>
                 <Link href="/about-us" className="text-lg text-gray-800 dark:text-gray-300 hover:text-green-600 transition block">About</Link>
                 <Link href="/checkup" className="text-lg text-gray-800 dark:text-gray-300 hover:text-green-600 transition block">PCU</Link>
-                <Link href="#events" className="text-lg text-gray-800 dark:text-gray-300 hover:text-green-600 transition block">Events</Link>
+                <Link href="/events" className="text-lg text-gray-800 dark:text-gray-300 hover:text-green-600 transition block">Events</Link>
+                <Link href="/forum" className="text-lg text-gray-800 dark:text-gray-300 hover:text-green-600 transition block">Forum</Link>
                 <Link href="/contact" className="text-lg text-gray-800 dark:text-gray-300 hover:text-green-600 transition block">Contact</Link>
-
-
-                {session && <Link href="/checkup" className="text-lg  hover:text-green-600 dark:hover:text-green-500 transition">PCU</Link> }
 
                     
                 {!session ? (

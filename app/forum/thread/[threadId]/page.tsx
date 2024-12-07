@@ -66,6 +66,28 @@ const Thread = () => {
           <p className="mt-4 text-gray-800 dark:text-gray-300">{thread.content}</p>
         </div>
 
+        
+
+        {/* Most Liked Answers */}
+        <div className="bg-white dark:bg-gray-800 p-6">
+          <h2 className="text-xl font-semibold text-green-600">Most Liked Answers</h2>
+          <div className="mt-4 space-y-4">
+            {thread.answers.map((answer: any) => (
+              <div
+                key={answer.id}
+                className="p-4 border border-gray-300 dark:border-gray-700 rounded-lg bg-gray-100 dark:bg-gray-900"
+              >
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  {answer.user.name} • {answer.likes} likes
+                </p>
+                <p className="mt-2 text-gray-800 dark:text-gray-300">
+                  {answer.content}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* New Answer Form */}
         <div className="bg-white dark:bg-gray-800 p-6 border-b dark:border-gray-700">
           <h2 className="text-xl font-semibold text-green-600">Your Answer</h2>
@@ -86,25 +108,6 @@ const Thread = () => {
           </form>
         </div>
 
-        {/* Most Liked Answers */}
-        <div className="bg-white dark:bg-gray-800 p-6 mb-4">
-          <h2 className="text-xl font-semibold text-green-600">Most Liked Answers</h2>
-          <div className="mt-4 space-y-4">
-            {thread.answers.map((answer: any) => (
-              <div
-                key={answer.id}
-                className="p-4 border border-gray-300 dark:border-gray-700 rounded-lg bg-gray-100 dark:bg-gray-900"
-              >
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  {answer.user.name} • {answer.likes} likes
-                </p>
-                <p className="mt-2 text-gray-800 dark:text-gray-300">
-                  {answer.content}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
       : <div>Loading</div>
   ) 

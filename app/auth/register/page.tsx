@@ -65,7 +65,7 @@ const RegisterPage = () => {
         </div>
 
         {/* Right Section */}
-        <div className="flex-1 p-8">
+        <div className="flex-1 p-8 text-gray-900">
           <h2 className="text-2xl font-semibold text-green-700 dark:text-green-300 mb-6">
             Create your account
           </h2>

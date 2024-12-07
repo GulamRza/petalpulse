@@ -2,7 +2,7 @@ import { FaHome, FaQuestion, FaTags, FaBlog, FaShoppingBag } from "react-icons/f
 
 const LeftSidebar = () => {
   return (
-    <aside className="w-64 hidden lg:flex bg-gray-100 dark:bg-gray-900 h-screen flex-col p-4 space-y-6  dark:border-gray-700">
+    <aside className="w-64 sticky top-0 hidden lg:flex bg-gray-100 dark:bg-gray-900 h-screen flex-col p-4 space-y-6  dark:border-gray-700">
       {/* Navigation Section */}
       <nav>
         <ul className="space-y-3">

@@ -29,7 +29,7 @@ const ProfileButton = ({ user }: { user: any }) => {
           height={40}
           className="object-cover w-full h-full"
         /> :
-          <CgProfile className="w-full h-full scale-75" />
+          <CgProfile className="w-full h-full scale-75 text-gray-800 dark:text-gray-300 hover:text-green-600 transition block" />
         }
         
       </button>
@@ -45,7 +45,7 @@ const ProfileButton = ({ user }: { user: any }) => {
       {/* Dropdown Menu */}
       {menuOpen && (
         <div
-          className="z-20 absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700"
+          className="z-20 absolute right-1/3 lg:right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700"
           onClick={closeMenu} // Close menu when any option is clicked
         >
           <ul className="p-4 space-y-2">

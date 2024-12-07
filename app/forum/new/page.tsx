@@ -45,8 +45,8 @@ const NewThread = () => {
   };
 
   return (
-    <div className="  flex-grow bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 flex  justify-center">
-      <div className=" rounded max-w-4xl w-full bg-white dark:bg-gray-800 p-6">
+    <div className="  flex-grow bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 flex  justify-center py-4">
+      <div className=" rounded-lg max-w-4xl w-full bg-white dark:bg-gray-800 p-6">
         <h1 className="text-2xl font-bold text-green-600 mb-4">Post a New Thread</h1>
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Thread Title */}
@@ -81,7 +81,7 @@ const NewThread = () => {
               value={content}
               onChange={(e) => setContent(e.target.value)}
               placeholder="Write the details of your question or discussion here..."
-              rows={6}
+              rows={10}
               className="mt-1 p-2 block w-full rounded-md border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 focus:ring-green-500 focus:border-green-500"
               required
             ></textarea>
