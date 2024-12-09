@@ -7,20 +7,19 @@ import { redirect } from "next/navigation";
 
 export default async function AnswerBox({ threadId } : { threadId : string }){
 
-  // const [newAnswer, setNewAnswer] = useState("");
-  const session = await getServerSession(authOptions);
-
+  
   const handleAnswerSubmit = async (formData: FormData) => {
     "use server";
 
+    const session = await getServerSession(authOptions);
     const content = formData.get('answer') as string || '';
 
     if (!session?.user){
-      redirect('/auth/sign-in');
+      redirect('/auth/sign-in?redirect=/forum/thread/'+threadId);
     }
 
     else if(content.length){
-      const answer = await prisma.answer.create({
+      await prisma.answer.create({
         data: {
           content,
           threadId,
