@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     title: 'PetalPulse - The Ultimate Plant Lovers Community',
     description: 'Join PetalPulse to explore plant care, plant diseases, a vibrant forum, and much more!',
     siteName: 'PetalPulse',
+  },
+  other: {
+    "google-site-verification": "tdsvBVUQpsqSwRvwliCrGABC1H4FPOkGAszvNQFvo60"
   }
 };
 
