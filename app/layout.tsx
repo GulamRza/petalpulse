@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: 'PetalPulse',
   },
   other: {
-    "google-site-verification": "tdsvBVUQpsqSwRvwliCrGABC1H4FPOkGAszvNQFvo60"
+    "google-site-verification": "RDZcgxFOvNW6IPhTVkvN07Y-kZAErtZw5T-XtSvdcjM"
   }
 };
 
