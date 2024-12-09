@@ -7,7 +7,7 @@ function EventAndChallangesSection() {
                 {/* Section Header */}
                 <div className="text-center mb-10">
                     <h2 className="text-3xl lg:text-4xl font-extrabold text-green-800 dark:text-green-500">
-                        Events & Challenges
+                        Events & Challenges*
                     </h2>
                     <p className="mt-4 text-gray-600 dark:text-gray-100">
                         Participate in exciting events and challenges to grow your love for plants!

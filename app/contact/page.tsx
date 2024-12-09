@@ -1,5 +1,15 @@
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
+import { Metadata } from 'next'
+
+
+export const metadata: Metadata = {
+  title: 'Contact Us',
+  description: 'JHave questions or feedback? Contact the PetalPulse team to learn more about our platform, report issues, or collaborate with us!',
+  keywords: ["contact PetalPulse", "plant care support", "gardening questions", "feedback"]
+}
+
+
 const Contact = () => {
     return (
       <section className="bg-gray-100 dark:bg-gray-900 py-16 px-6">

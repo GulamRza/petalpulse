@@ -8,7 +8,7 @@ function PlantGallarySection() {
                 {/* Section Header */}
                 <div className="text-center mb-10">
                     <h2 className="text-3xl lg:text-4xl font-bold text-green-800 dark:text-green-500">
-                        Plant Gallery
+                        Plant Gallery*
                     </h2>
                     <p className="mt-4 text-gray-700 dark:text-gray-200">
                         Explore a variety of plants from our community members. Get inspired to grow your own!

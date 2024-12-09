@@ -13,8 +13,8 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-col items-center justify-center bg-white dark:bg-gray-900 pt-32 overflow-hidden ">
-        {/* Heading */}
         <div className="px-6">
+          {/* Heading */}
           <h1 className="text-5xl md:text-7xl font-extrabold text-gray-800 dark:text-gray-200 text-center">
             Welcome to the Plant Community
           </h1>
@@ -41,14 +41,18 @@ export default function Home() {
         <div className="mt-12">
           <div className="w-full h-72 flex gap-40 justify-between">
             {/* Replace the placeholder with a decorative image */}
-            <img
+            <Image
               src="/pi2.png"
               alt="Potted plants"
+              width={800}
+              height={800}
               className="object-cover w-full h-full translate-y-6 lg:scale-120 mix-blend-multiply dark:mix-blend-screen" 
             />
-            <img
+            <Image
               src="/pi3.png"
               alt="Potted plants"
+              width={800}
+              height={800}
               className=" w-full h-full translate-y-7 scale-[200%] mix-blend-multiply dark:mix-blend-screen -hue-rotate-[3deg]"
             />
           </div>

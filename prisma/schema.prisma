@@ -14,14 +14,13 @@ datasource db {
 }
 
 model User {
-  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
   name      String
-  email     String    @unique
+  email     String   @unique
   password  String
   threads   Thread[] // User's created threads
-  comments  Comment[] // User's comments
-  answers Answer[] // User's answers to threads
-  createdAt DateTime  @default(now())
+  answers   Answer[] // User's answers to threads
+  createdAt DateTime @default(now())
 }
 
 model Category {
@@ -31,49 +30,45 @@ model Category {
 }
 
 model Tag {
-  id      String   @id @default(auto()) @map("_id") @db.ObjectId
-  name    String
-  threadIDs String[] @db.ObjectId
-  threads Thread[] @relation(fields: [threadIDs], references: [id])
+  id        String      @id @default(auto()) @map("_id") @db.ObjectId
+  name      String      @unique // Tag name (must be unique)
+  threads   ThreadTag[] // Relationship to threads
 }
 
 model Thread {
-  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
   title      String
   content    String
-  author     User      @relation(fields: [authorId], references: [id])
-  authorId   String    @db.ObjectId
-  category   Category  @relation(fields: [categoryId], references: [id])
-  categoryId String    @db.ObjectId
+  author     User     @relation(fields: [authorId], references: [id])
+  authorId   String   @db.ObjectId
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId String   @db.ObjectId
 
-  tags       Tag[]     @relation(fields: [tagIDs], references: [id])
-  tagIDs     String[]  @db.ObjectId
+  tags ThreadTag[] // Relationship to tags
 
-  answers Answer[]
-  comments   Comment[]
-  createdAt  DateTime  @default(now())
-  updatedAt  DateTime  @updatedAt
-}
-
-model Answer {
-  id         String    @id @default(auto()) @map("_id") @db.ObjectId
-  content String
-  threadId String @db.ObjectId
-  thread Thread @relation(fields: [threadId], references: [id])
-  userId String @db.ObjectId
-  user User @relation(fields: [userId], references: [id])
-
+  answers   Answer[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model Comment {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  content   String
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  String   @db.ObjectId
-  thread    Thread   @relation(fields: [threadId], references: [id])
-  threadId  String   @db.ObjectId
+model ThreadTag {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId // Unique identifier for the relationship
+  threadId String @db.ObjectId
+  tagId    String @db.ObjectId
+  thread   Thread @relation(fields: [threadId], references: [id], onDelete: Cascade)
+  tag      Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@unique([threadId, tagId]) // Ensure a thread cannot have duplicate tags
+}
+
+model Answer {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  content  String
+  threadId String @db.ObjectId
+  thread   Thread @relation(fields: [threadId], references: [id])
+  userId   String @db.ObjectId
+  user     User   @relation(fields: [userId], references: [id])
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

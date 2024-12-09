@@ -23,13 +23,11 @@ const NextThemesProvider = dynamic(
 
 function _Providers({ children }: { children: ReactNode }) {
   return (
-
     <SessionProvider>
       <NextThemesProvider
         attribute="class"
         defaultTheme="system"
         enableSystem
-        // disableTransitionOnChange
       >
         {children}
       </NextThemesProvider>
@@ -43,10 +41,7 @@ function _Page({ children }: { children: ReactNode }) {
   const excludedRoutes = ["/auth/sign-in", "/auth/register"];
   const isExcludedRoute = excludedRoutes.includes(pathname);
 
-
-
   return (
-
     <_Providers>
       {!isExcludedRoute && <Navbar />}
       {children}

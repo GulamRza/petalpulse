@@ -47,8 +47,8 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-green-100 to-green-300 dark:from-gray-900 dark:to-gray-800">
-      <div className="flex flex-col md:flex-row shadow-lg rounded-xl bg-white dark:bg-gray-900 overflow-hidden w-11/12 max-w-5xl">
+    <div className="flex min-h-dvh lg:items-center justify-center bg-gradient-to-br from-green-100 to-green-300 dark:from-gray-900 dark:to-gray-800">
+      <div className="flex flex-col md:flex-row shadow-lg lg:rounded-xl bg-white dark:bg-gray-900 overflow-hidden lg:w-11/12 max-w-5xl">
         {/* Left Section */}
         <div className="flex-1 flex flex-col justify-center items-center p-8 bg-gradient-to-br from-green-500 to-green-700 text-white dark:from-green-700 dark:to-green-900 relative">
           <Image 

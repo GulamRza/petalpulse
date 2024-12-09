@@ -1,6 +1,13 @@
 import React, { ReactNode } from 'react'
-import LeftSideBar from './LeftSideBar'
 import RightSideBar from './RightSideBar'
+import { Metadata } from 'next'
+
+
+export const metadata: Metadata = {
+  title: 'Forum',
+  description: 'Join the Plant Lovers Community Forum on PetalPulse! Discuss gardening tips, share your plant experiences, ask questions, and connect with plant enthusiasts worldwide.',
+  keywords: ["plant forum", "discussion", "plant", "houseplant help", "plant care", "plant guide"]
+}
 
 function layout({children}: {children : ReactNode}) {
   return (

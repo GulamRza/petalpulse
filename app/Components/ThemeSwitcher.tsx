@@ -17,19 +17,13 @@ function ThemeSwitcher() {
 
     
     return ( darkTheme ? 
-        <button
-            onClick={()=> setTheme('light')}
-            className="text-gray-800 focus:outline-none text-xl"
-        >
+        <button onClick={()=> setTheme('light')} className="text-gray-800 focus:outline-none text-xl">
                 <BiSun className='text-white' />
         </button>
         :
-        <button
-            onClick={()=> setTheme('dark')}
-            className="text-gray-800 focus:outline-none text-xl"
-        >
-                <BiMoon />
-                </button>
+        <button onClick={()=> setTheme('dark')} className="text-gray-800 focus:outline-none text-xl">
+            <BiMoon />
+        </button>
     )
 }
 

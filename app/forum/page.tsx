@@ -1,10 +1,10 @@
 
 import Link from "next/link";
-import { CgProfile } from "react-icons/cg";
 import { prisma } from "../utils/prisma";
 
-const Forum = async () => {
+export const dynamic = 'force-dynamic';
 
+const Forum = async () => {
 
   const questions: any[] = await prisma.thread.findMany({
     include: {
@@ -13,7 +13,7 @@ const Forum = async () => {
       },
       tags: {
         select: {
-          name: true
+          tag: true
         }
       }
     },
@@ -21,8 +21,6 @@ const Forum = async () => {
       createdAt: 'desc'
     }
   });
-
-  // const questions: any[] = [];
 
 
   if (!questions) {
@@ -36,28 +34,17 @@ const Forum = async () => {
 
         <div className="flex justify-between">
           <h1 className="text-2xl font-bold">Newest Questions</h1>
-          <Link href='/forum/new' className="bg-lime-600 hover:bg-green-600 text-white p-2 px-4 rounded-md">Ask Question</Link>
+          <Link href='/forum/new' className="bg-green-600 hover:bg-green-700 text-white p-2 px-4 rounded-md">Ask Question</Link>
 
         </div>
-
-        {/* <div className="flex flex-row gap-2">
-            <input
-              type="text"
-              placeholder="Search Question..."
-              className=" lg:w-2/4 px-4 py-2  rounded-lg  dark:bg-gray-800 dark:border-gray-700 border border-gray-300 focus:outline-none"
-            />
-            <button className="bg-gray-700 hover:bg-green-600 text-white px-4 py-2 rounded-lg">
-              Search
-            </button>
-          </div> */}
       </div>
 
       {/* Questions List */}
-      <div className="flex flex-col gap-2 pb-6">
+      <div className="flex flex-col pb-6">
         {questions.map((question: any) => (
           <div
             key={question.id}
-            className="bg-white dark:bg-gray-800 p-4 border-gray-300 dark:border-gray-700 lg:rounded transition-shadow"
+            className="bg-white dark:bg-gray-800 p-4 border-gray-300 dark:border-gray-700 lg:rounded transition-shadow border-b lg:border-none lg:mb-4"
           >
             <div className="flex justify-between items-start">
               {/* <CgProfile className="text-2xl" /> */}
@@ -89,12 +76,12 @@ const Forum = async () => {
 
                 {/* showing tags */}
                 <div className="flex gap-2 mt-2 text-sm">
-                  {question.tags.map((tag: { name: string }, index: number) => (
+                  {question.tags.map((tag: any) => (
                     <span
-                      key={index}
+                      key={tag.tag.id}
                       className="px-2 py-1 text-xs bg-green-100 dark:bg-gray-700 rounded"
                     >
-                      {tag.name}
+                      {tag.tag.name}
                     </span>
                   ))}
                 </div>

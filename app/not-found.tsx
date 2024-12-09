@@ -1,26 +1,22 @@
-
 import Link from "next/link";
+import Image from "next/image";
 
-export const metadata = {
-  layout: "none", // Custom flag to exclude layout
-};
 
 const NotFoundPage = () => {
   return (
-    <div className="min-h-screen w-screen absolute top-0 left-0 flex flex-col items-center justify-center bg-gradient-to-b from-green-100 to-green-50 dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-4xl text-center px-4 flex items-center">
+    <div className="py-20 flex flex-col items-center justify-center bg-gradient-to-b from-green-100 to-green-50 dark:from-gray-900 dark:to-gray-800">
+      <div className="max-w-4xl text-center px-4 flex flex-col lg:flex-row gap-4 items-center">
         {/* Illustration */}
-        {/* <div className="flex justify-center items-center mb-8"> */}
-          <img
+          <Image
             src="/not-found-illustration.jpg"
             alt="Not Found Illustration"
+            width={600}
+            height={600}
             className="w-full max-w-md mix-blend-multiply"
           />
-        {/* </div> */}
 
-        {/* Title */}
         <div>
-
+          {/* Title */}
           <h1 className="text-5xl font-extrabold text-green-700 dark:text-green-300">
             Page Not Found
           </h1>

@@ -1,3 +1,11 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'About PetalPulse',
+  description: 'Learn more about PetalPulse, your go-to platform for plant lovers. Discover how we inspire plant care, share knowledge, and build a thriving community.',
+  keywords: ["about PetalPulse", "plant community"]
+}
+
 const AboutUs = () => {
     return (
       <section className="bg-gray-100 dark:bg-gray-900 py-16 px-6">

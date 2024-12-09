@@ -7,7 +7,7 @@ function TestimonialsSection() {
                 {/* Section Header */}
                 <div className="text-center mb-10">
                     <h2 className="text-3xl lg:text-4xl font-extrabold text-green-800 dark:text-green-500">
-                        What Our Members Say
+                        What Our Members Say*
                     </h2>
                     <p className="mt-4 text-gray-600 dark:text-gray-200">
                         Real stories from our amazing plant-loving community.
