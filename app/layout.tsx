@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Inter,  } from 'next/font/google';
+import { Inter, } from 'next/font/google';
 import _Page from "./_page";
 
 
 // setting up fonts
 const bodyFont = Inter({ weight: '400', subsets: ['latin'], variable: '--inter-font' });
 const headingFont = localFont({ src: 'fonts/PlayfairDisplay.ttf', variable: '--fairplay-font' });
-const accentFont = localFont({ src: 'fonts/Pacifico-Regular.ttf', variable: '--pacifico-font'});
+const accentFont = localFont({ src: 'fonts/Pacifico-Regular.ttf', variable: '--pacifico-font' });
 
 
 export const metadata: Metadata = {
@@ -39,10 +39,25 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`${bodyFont.variable} ${headingFont.variable} ${accentFont.variable} antialiased`}>
+        <CustomeWebsiteNaming />
+
         <_Page>
           {children}
         </_Page>
       </body>
     </html>
   );
+}
+
+
+function CustomeWebsiteNaming() {
+  return (
+    <>
+      <div itemScope itemType="https://schema.org/WebSite">
+        <link itemProp="url" href={process.env.BASE_URL} />
+        <meta itemProp="name" content="Petal-Pulse" />
+        <meta itemProp="alternateName" content="Petal-Pulse, PetalPulse Community" />
+      </div>
+    </>
+  )
 }

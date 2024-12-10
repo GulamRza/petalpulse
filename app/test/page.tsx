@@ -9,40 +9,7 @@ const HeroSection = async () => {
 
   // const result = tagIds;
 
-  const result = await prisma.thread.findUnique({
-    where: {
-      id : threadId
-    }, 
-    include: {
-      author: {
-        select: {
-          name : true
-        }
-      },
-      answers: {
-        select: {
-          id : true,
-          content: true,
-          createdAt: true,
-          user : {
-            select: {
-              name : true
-            }
-          }
-        }
-      },
-      tags: {
-        select: {
-          tag: {
-            select: {
-              id : true,
-              name : true
-            }
-          }
-        }
-      }
-    }
-  })
+  const result = [''];
 
 
 
