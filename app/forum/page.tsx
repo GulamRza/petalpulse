@@ -1,6 +1,7 @@
 
 import Link from "next/link";
 import { prisma } from "../utils/prisma";
+import PaginationBar from "../Components/PaginationBar";
 
 export const dynamic = 'force-dynamic';
 
@@ -51,38 +52,12 @@ const Forum = async (
 
       <QuestionList questions={questions} />
 
-      <PaginationBar totalPages={Math.ceil(totalSize / pageSize)} currentPage={pageNumber} />
+      <PaginationBar totalPages={Math.ceil(totalSize / pageSize)}  />
 
     </div>
   );
 };
 
-function PaginationBar({ totalPages, currentPage}: { totalPages: number, currentPage: number }){
-
-  return (
-    <div className=" flex justify-between gap-4 flex-wrap mb-6 px-2 lg:px-0">
-      <div className="space-x-2">
-        {currentPage != 1 && <Link href={'/forum?page='+(currentPage-1)} className="px-4 py-2 rounded bg-gray-200 dark:bg-gray-700">Prev</Link>}
-
-        {currentPage != totalPages && <Link href={`/forum?page=${currentPage + 1}`} className="px-4 py-2 rounded bg-gray-200 dark:bg-gray-700">Next</Link>}
-      </div>
-      <div className="space-x-2">
-        {new Array(totalPages).fill(0).map((_, pageNumber) => (
-          <Link
-            key={pageNumber}
-            href={'/forum?page='+(pageNumber + 1)}
-            className={`
-              ${currentPage == pageNumber + 1 ? "bg-green-300 dark:bg-green-700": 'bg-gray-200 dark:bg-gray-700'}
-              px-4 py-2 rounded`}
-          >
-            {pageNumber + 1}
-          </Link>
-        ))}
-      </div>
-    </div>
-  )
-
-}
 
 function QuestionList({ questions }: { questions: any[] }) {
   return (

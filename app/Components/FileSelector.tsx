@@ -1,6 +1,8 @@
+'use client';
 import React, { useState } from "react";
+import Image from "next/image";
 
-const FileSelector = ({ onChange } : { onChange : Function }) => {
+const FileSelector = ({ onChange, className } : { onChange : Function, className?: any }) => {
   const [file, setFile] = useState<File | null>(null)
   const [isDragging, setIsDragging] = useState(false);
 
@@ -43,9 +45,10 @@ const FileSelector = ({ onChange } : { onChange : Function }) => {
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
-      className={`border-2 border-dashed rounded-lg p-6 text-center transition-colors duration-300 ${
+      
+      className={`border-2 border-dashed rounded-lg relative p-6 text-center transition-colors duration-300 ${
         isDragging ? "border-blue-500/50 bg-blue-100/50" : "border-gray-400/50 bg-gray-500/5"
-      }`}
+      } ${className}`}
     >
       <input
         type="file"
@@ -58,11 +61,21 @@ const FileSelector = ({ onChange } : { onChange : Function }) => {
         Drag & drop a file here, or click to select a file
       </label>
 
-      {file && (
+      {file && (file.type.includes('image') ? (
         <div className="mt-4">
-          <p className="text-gray-600">{file.name}</p>
+          <Image
+            src={URL.createObjectURL(file)}
+            alt={file.name}
+            width={200}
+            height={200}
+            className="absolute top-0 left-0 w-full h-full object-cover opacity-10"
+          />
         </div>
-      )}
+      ) : (
+        <div className="mt-4">
+          <p className="text-gray-600 w-full">{file.name}</p>
+        </div>
+      ))}
     </div>
   );
 };

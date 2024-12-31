@@ -45,7 +45,7 @@ export default function Marketplace() {
                   className="bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-2xl  p-4"
                 >
                   <img
-                    src="https://via.placeholder.com/200"
+                    src="thumbnail-image.png"
                     alt="Plant"
                     className="rounded-lg mb-4 w-full h-48 object-cover"
                   />

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import LoadingIndicator from '../Components/LoadingIndicator';
 import FileSelector from '../Components/FileSelector';
+import convertToBase64 from '../utils/FileToBase64';
 
 
 
@@ -12,21 +13,6 @@ const PlantDiseaseDetection = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [result, setResult] = useState<string | null>(null); // State to store the result
   const [loadingResult, setLoadingResult] = useState<boolean>(false);
-
-  function convertToBase64(file: File) {
-    return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-
-      fileReader.onload = () => {
-        resolve(fileReader.result);
-      }
-
-      fileReader.onerror = (err) => {
-        reject(err);
-      }
-    })
-  }
 
   const handleSubmit = async () => {
     if (selectedFile) {

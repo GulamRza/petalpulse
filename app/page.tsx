@@ -12,7 +12,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <div className="flex flex-col items-center justify-center bg-white dark:bg-gray-900 pt-32 overflow-hidden ">
+      <div className="flex flex-col items-center justify-center bg-white dark:bg-gray-900 lg:pt-32 pt-10 overflow-hidden ">
         <div className="px-6">
           {/* Heading */}
           <h1 className="text-5xl md:text-7xl font-extrabold text-gray-800 dark:text-gray-200 text-center">
@@ -83,9 +83,9 @@ export default function Home() {
             <div className="lg:w-1/2 flex justify-center rounded overflow-hidden">
               <img
                 // src="/about-plants.png"
-                src={'/thumbnail-image.png'}
+                src={'/community-image.webp'}
                 alt="Community of plant lovers"
-                className="w-full max-w-lg"
+                className="w-full max-w-lg rounded-lg h-full object-cover"
               />
             </div>
           </div>

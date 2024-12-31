@@ -38,10 +38,10 @@ const Navbar = () => {
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex space-x-10 text-gray-800 dark:text-gray-300 items-center">
-                    <Link href="/" className="  hover:text-green-600 dark:hover:text-green-500 transition">Home</Link>
+                    <Link href="/plants" className="  hover:text-green-600 dark:hover:text-green-500 transition">Plants</Link>
+                    <Link href="/forum" className="  hover:text-green-600 dark:hover:text-green-500 transition">Forum</Link>
                     <Link href="/about-us" className="  hover:text-green-600 dark:hover:text-green-500 transition">About</Link>
                     <Link href="/events" className="  hover:text-green-600 dark:hover:text-green-500 transition">Events</Link>
-                    <Link href="/forum" className="  hover:text-green-600 dark:hover:text-green-500 transition">Forum</Link>
                     <Link href="/contact" className="  hover:text-green-600 dark:hover:text-green-500 transition">Contact</Link>
 
                     {session && <Link href="/checkup" className="  hover:text-green-600 dark:hover:text-green-500 transition">PCU</Link> }
@@ -84,7 +84,7 @@ const Navbar = () => {
             {/* Mobile Menu */}
             <div
                 className={`${isMenuOpen ? 'block' : 'hidden'
-                    } md:hidden bg-white dark:bg-gray-900 py-4 space-y-4 text-center fixed top-0 w-full min-h-svh z-50`}
+                    } md:hidden bg-white dark:bg-gray-900 py-4 space-y-4 text-center fixed top-0 w-full min-h-screen z-50`}
             >
                 <div className='flex justify-between px-6 lg:px-20'>
                     {/* Logo */}
@@ -118,11 +118,11 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                <Link href="/" onClick={toggleMenu} className="text-lg text-gray-800 dark:text-gray-300 hover:text-green-600 transition block">Home</Link>
-                <Link href="/about-us" onClick={toggleMenu} className="text-lg text-gray-800 dark:text-gray-300 hover:text-green-600 transition block">About</Link>
+                <Link href="/plants" onClick={toggleMenu} className="text-lg text-gray-800 dark:text-gray-300 hover:text-green-600 transition block">Plants</Link>
                 <Link href="/checkup" onClick={toggleMenu} className="text-lg text-gray-800 dark:text-gray-300 hover:text-green-600 transition block">PCU</Link>
-                <Link href="/events" onClick={toggleMenu} className="text-lg text-gray-800 dark:text-gray-300 hover:text-green-600 transition block">Events</Link>
                 <Link href="/forum" onClick={toggleMenu} className="text-lg text-gray-800 dark:text-gray-300 hover:text-green-600 transition block">Forum</Link>
+                <Link href="/about-us" onClick={toggleMenu} className="text-lg text-gray-800 dark:text-gray-300 hover:text-green-600 transition block">About</Link>
+                <Link href="/events" onClick={toggleMenu} className="text-lg text-gray-800 dark:text-gray-300 hover:text-green-600 transition block">Events</Link>
                 <Link href="/contact" onClick={toggleMenu} className="text-lg text-gray-800 dark:text-gray-300 hover:text-green-600 transition block">Contact</Link>
 
                     

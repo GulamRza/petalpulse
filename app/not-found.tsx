@@ -1,6 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Plant Not Found | PetalPulse",
+  description: "The page you are looking for does not exist.",
+
+}
 
 const NotFoundPage = () => {
   return (
